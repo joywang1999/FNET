@@ -1,0 +1,24 @@
+##########################################################
+# Tiny ImageNet data file are in data_preprocessing/data #
+##########################################################
+data_preprocessing/data/*
+
+#################
+#Temporary files#
+#################
+*.swp
+*.pyc
+.env/*
+
+###############
+# Other files #
+###############
+*/.ipynb_checkpoints
+ref/*
+__pycache__/*
+.idea/*
+
+###################
+# Tensorflow data #
+###################
+*.data-00000-of-00001
