@@ -200,6 +200,7 @@ class FishNet(tf.keras.Model):
         self.pool1 = tf.keras.layers.MaxPool2D(3, strides=2, data_format='channels_first')
         # construct fish, resolution 56x56
         self.fish = Fish(block, **kwargs)
+        self.softmax = tf.keras.layers.Softmax()
         # self._init_weights()
 
     def _conv_bn_relu(self, in_ch, out_ch, stride=1):
@@ -226,6 +227,7 @@ class FishNet(tf.keras.Model):
         score = self.fish(x)
         # 1*1 output
         out = tf.reshape(score, (x.shape[0], -1))
+        out = self.softmax(out)
 
         return out
 
